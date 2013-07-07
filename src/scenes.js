@@ -1,6 +1,11 @@
-// Game scene
-// -------------
-// Runs the core gameplay loop
+
+function CreateWifeAngerMeter()
+{
+     Crafty.e("2D, DOM, Shape")
+        .circle(50)
+        .color("#FF0000");
+}
+
 Crafty.scene('Game', function()
 {
     Crafty.load(['assets/garage.png'], function()
@@ -30,6 +35,8 @@ Crafty.scene('Game', function()
             .textFont({ size: '45px', weight: 'bold' })
             .textColor('#BB0000')
             .addTween({ alpha: 0 }, 'easeInQuart', 120, function() { StartDialog(); });
+
+        //CreateWifeAngerMeter();
     })
 });
  

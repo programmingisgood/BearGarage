@@ -1,7 +1,8 @@
 
 Modules = { SetOnAllLoadedCallback: function(callbackFunc) { this.onAllLoaded = callbackFunc }, onAllLoaded: null, allLoaded: false, _allModules:
 [ { name: "Tweener" },
-  { name: "Dialogues" } ] }
+  { name: "Dialogues" },
+  { name: "Shape" } ] }
 
 var loadModules = { };
 for (var i = 0; i < Modules._allModules.length; i++)

@@ -16,7 +16,7 @@ Game =
         Crafty.background("rgb(255, 255, 255)");
         
         Modules.SetOnAllLoadedCallback(function() { Crafty.scene("Intro"); });
-        //Modules.SetOnAllLoadedCallback(function() { Crafty.scene("Game"); });
+        //Modules.SetOnAllLoadedCallback(function() { AddWifeMeter(); Crafty.scene("Outside"); });
     }
 }
 

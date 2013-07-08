@@ -1,5 +1,14 @@
 
-Modules = { SetOnAllLoadedCallback: function(callbackFunc) { this.onAllLoaded = callbackFunc }, onAllLoaded: null, allLoaded: false, _allModules:
+var SetOnAllLoadedCallback = function(callbackFunc)
+{
+    this.onAllLoaded = callbackFunc;
+    if (this.allLoaded)
+    {
+        this.onAllLoaded();
+    }
+}
+
+Modules = { SetOnAllLoadedCallback: SetOnAllLoadedCallback, onAllLoaded: null, allLoaded: false, _allModules:
 [ { name: "Tweener" },
   { name: "Dialogues" },
   { name: "Shape" } ] }
@@ -14,5 +23,6 @@ for (var i = 0; i < Modules._allModules.length; i++)
 Crafty.modules('http://cdn.craftycomponents.com/', loadModules, function()
 {
     Modules.allLoaded = true;
-    Modules.onAllLoaded();
+    if (Modules.onAllLoaded)
+        Modules.onAllLoaded();
 });

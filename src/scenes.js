@@ -1,82 +1,68 @@
 
-function CreateWifeAngerMeter()
+// This file has the global functions used in all scenes and in the dialog tree.
+
+wifeAngerMeter = null;
+function AddWifeMeter()
 {
-     Crafty.e("2D, DOM, Shape")
-        .circle(50)
-        .color("#FF0000");
+    var meterPos = { x: 32, y: 400 - 32, z: 100 };
+    var background = Crafty.e("2D, Canvas, Shape, Persist")
+                     .attr(meterPos)
+                     .rect(102, 32)
+                     .color("#444444");
+
+    var foreground = Crafty.e("2D, Canvas, Shape, Tweener, Persist")
+                     .attr({ x: meterPos.x + 1, y: meterPos.y + 1, z: meterPos.z })
+                     .rect(0, 30)
+                     .color("#FF0000");
+
+    var wifeIcon = Crafty.e("2D, Canvas, Image, Persist")
+                   .attr({ x: meterPos.x - 32, y: meterPos.y, z: meterPos.z })
+                   .image("assets/wife_icon.png");
+
+    wifeAngerMeter = { background: background, foreground: foreground, wifeIcon: wifeIcon, SetAnger: function(anger) { this.foreground.w = 100 * anger } };
 }
 
-Crafty.scene('Game', function()
+function IncreaseWifeAnger(amount)
 {
-    Crafty.load(['assets/garage.png'], function()
+    var goal = wifeAngerMeter.foreground.w + 100 * amount;
+    goal = Math.min(Math.max(goal, 0), 100);
+    if (wifeAngerMeter.isTweening)
     {
-        var bg = Crafty.e("2D, DOM, Image")
-                .attr({ w: Crafty.viewport.width, h: Crafty.viewport.height })
-                .image("assets/garage.png");
+        if (wifeAngerMeter.nextTween)
+            wifeAngerMeter.nextTween += amount;
+        else
+            wifeAngerMeter.nextTween = amount;
+        return;
+    }
 
-        this.bear = Crafty.e("2D, DOM, Image, Tweener").image("assets/bear-128.png")
-                    .attr({ x: 120, y: 180 });
-
-        this.bear.Shake = function() { this.addTween({ x: this.x - 20 }, "easeOutElastic", 50, function() { this.addTween({ x: this.x + 20 }, "easeOutElastic", 50); }); };
-
-        var StartDialog = function()
+    wifeAngerMeter.isTweening = true;
+    wifeAngerMeter.foreground.addTween({ w: goal }, "easeOutCubic", 50,
+        function()
         {
-            var dialog = Crafty.e("2D, DOM, Dialogues").setDialogues(DIALOGUES_DATA_SOURCE);
-            dialog.showDialogue();
-
-            var bear = this.bear;
-            dialog.ShakeBear = function() { bear.Shake(); };
-        }
-
-        Crafty.e('2D, DOM, Text, Tweener')
-            .text('Get that dang bear outta your garage!')
-            .attr({ x: Game.width() * 0.2 / 2, y: Game.height() / 4, w: Game.width() * 0.8 })
-            .css($center_text_css)
-            .textFont({ size: '45px', weight: 'bold' })
-            .textColor('#BB0000')
-            .addTween({ alpha: 0 }, 'easeInQuart', 120, function() { StartDialog(); });
-
-        //CreateWifeAngerMeter();
-    })
-});
- 
-// Loading scene
-// -------------
-// Handles the loading of binary assets such as images and audio files
-Crafty.scene('Intro', function()
-{
-    // Draw some text for the player to see in case the file
-    //  takes a noticeable amount of time to load
-    Crafty.e('2D, DOM, Text')
-        .text('Loading...')
-        .attr({ x: 0, y: Game.height() / 2, w: Game.width() })
-        .css($center_text_css);
-    
-    // Load our sprite map image
-    Crafty.load(['assets/intro.png'], function()
-    {
-        var bg = Crafty.e("2D, DOM, Image")
-                .attr( {w: Crafty.viewport.width, h: Crafty.viewport.height} )
-                .image("assets/intro.png");
-
-        this.bear = Crafty.e("2D, DOM, Image, Tween")
-                    .attr({ x: 400, y: 300, w: 64, h: 64 })
-                    .image("assets/bear.png")
-                    .tween({ x: 100, y: 250 }, 300);
-
-        this.bear.state = 1;
-
-        this.bear.bind('TweenEnd', function()
-        {
-            if (this.state == 1)
+            console.log(this.w);
+            wifeAngerMeter.isTweening = false;
+            if (this.w >= 100)
             {
-                this.tween({ x: 75, y: 200, alpha: 0 }, 100);
-                this.state = 2;
+                ChangeScene("WifeFury");
+                return;
             }
-            else
+
+            if (wifeAngerMeter.nextTween)
             {
-                Crafty.scene('Game');
+                var nextTween = wifeAngerMeter.nextTween;
+                wifeAngerMeter.nextTween = null;
+                IncreaseWifeAnger(nextTween);
             }
         });
-    })
-});
+}
+
+function ChangeScene(scene)
+{
+    Crafty.scene(scene);
+}
+
+bear = null;
+function ShakeBear()
+{
+    bear.addTween({ x: bear.x - 15 }, "easeOutElastic", 40, function() { bear.addTween({ x: bear.x + 15 }, "easeOutElastic", 40); });
+}

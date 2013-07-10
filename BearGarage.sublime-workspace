@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"home",
+				"homeOwner"
+			],
+			[
 				"obst",
 				"obstacleType"
 			],
@@ -127,7 +131,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 1147,
+				"buffer_size": 2051,
 				"line_ending": "Windows"
 			}
 		},
@@ -135,16 +139,56 @@
 			"file": "src/scenes.js",
 			"settings":
 			{
-				"buffer_size": 2646,
+				"buffer_size": 2095,
 				"line_ending": "Windows",
 				"name": "// Game scene"
+			}
+		},
+		{
+			"file": "src/scene_outside.js",
+			"settings":
+			{
+				"buffer_size": 8542,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/scene_wifefury.js",
+			"settings":
+			{
+				"buffer_size": 1832,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/scene_garage.js",
+			"settings":
+			{
+				"buffer_size": 1597,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/scene_intro.js",
+			"settings":
+			{
+				"buffer_size": 828,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/scene_kitchen.js",
+			"settings":
+			{
+				"buffer_size": 2154,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "src/modules.js",
 			"settings":
 			{
-				"buffer_size": 521,
+				"buffer_size": 676,
 				"line_ending": "Windows"
 			}
 		},
@@ -152,7 +196,7 @@
 			"file": "src/game.js",
 			"settings":
 			{
-				"buffer_size": 479,
+				"buffer_size": 498,
 				"line_ending": "Windows",
 				"name": "Game = {"
 			}
@@ -166,11 +210,37 @@
 			}
 		},
 		{
-			"file": "src/dialogs.js",
+			"file": "src/dialog_wifefury_1.js",
 			"settings":
 			{
-				"buffer_size": 1947,
+				"buffer_size": 2023,
+				"line_ending": "Windows",
+				"name": "WIFE_FURY_1 ="
+			}
+		},
+		{
+			"file": "src/dialog_garage_1.js",
+			"settings":
+			{
+				"buffer_size": 2585,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/dialog_kitchen_1.js",
+			"settings":
+			{
+				"buffer_size": 2519,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/dialog_outside_1.js",
+			"settings":
+			{
+				"buffer_size": 8464,
+				"line_ending": "Windows",
+				"name": "OUTSIDE_1_DIALOG = {"
 			}
 		}
 	],
@@ -202,6 +272,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Brian/Projects/BearGarage/src/dialogs.js",
 		"/C/Users/Brian/Projects/BearGarage/src/dialogs.json",
 		"/C/Users/Brian/Projects/MarketSim/main.lua",
 		"/C/Users/Brian/Projects/MarketSim/conf.lua",
@@ -236,6 +307,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"addwife",
+			"dom",
+			"persist",
 			"this.bear",
 			"for ",
 			"local",
@@ -360,10 +434,7 @@
 			"resultsEffect",
 			"particle",
 			"vec2",
-			"idle",
-			"skate",
-			"kMaxSpeed",
-			"kmaxspeed"
+			"idle"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -384,7 +455,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -392,15 +463,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 1147,
+						"buffer_size": 2051,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								591,
-								591
+								1769,
+								1769
 							]
 						],
 						"settings":
@@ -410,7 +481,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 137.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -420,20 +491,76 @@
 					"file": "src/scenes.js",
 					"settings":
 					{
-						"buffer_size": 2646,
+						"buffer_size": 2095,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1384,
-								1384
+								1959,
+								1959
 							]
 						],
 						"settings":
 						{
 							"auto_name": "// Game scene",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/scene_outside.js",
+					"settings":
+					{
+						"buffer_size": 8542,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7976,
+								7976
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2160.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/scene_wifefury.js",
+					"settings":
+					{
+						"buffer_size": 1832,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								1832
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -445,25 +572,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src/modules.js",
+					"buffer": 4,
+					"file": "src/scene_garage.js",
 					"settings":
 					{
-						"buffer_size": 521,
+						"buffer_size": 1597,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								383,
-								383
+								1586,
+								1586
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -473,19 +600,104 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/game.js",
+					"buffer": 5,
+					"file": "src/scene_intro.js",
 					"settings":
 					{
-						"buffer_size": 479,
+						"buffer_size": 828,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								274,
-								274
+								647,
+								647
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/scene_kitchen.js",
+					"settings":
+					{
+						"buffer_size": 2154,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1508,
+								1508
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 135.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/modules.js",
+					"settings":
+					{
+						"buffer_size": 676,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								676,
+								676
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/game.js",
+					"settings":
+					{
+						"buffer_size": 498,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								282,
+								304
 							]
 						],
 						"settings":
@@ -502,7 +714,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 9,
 					"file": "src/components.js",
 					"settings":
 					{
@@ -513,8 +725,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								98,
+								98
 							]
 						],
 						"settings":
@@ -529,19 +741,47 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "src/dialogs.js",
+					"buffer": 10,
+					"file": "src/dialog_wifefury_1.js",
 					"settings":
 					{
-						"buffer_size": 1947,
+						"buffer_size": 2023,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								959,
-								959
+								35,
+								35
+							]
+						],
+						"settings":
+						{
+							"auto_name": "WIFE_FURY_1 =",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/dialog_garage_1.js",
+					"settings":
+					{
+						"buffer_size": 2585,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								15
 							]
 						],
 						"settings":
@@ -550,7 +790,63 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 152.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/dialog_kitchen_1.js",
+					"settings":
+					{
+						"buffer_size": 2519,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2519,
+								2519
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "src/dialog_outside_1.js",
+					"settings":
+					{
+						"buffer_size": 8464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8464,
+								8464
+							]
+						],
+						"settings":
+						{
+							"auto_name": "OUTSIDE_1_DIALOG = {",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3512.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -603,6 +899,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"dial",
+				"src/dialog_garage_1.js"
+			],
 			[
 				"markeps",
 				"MarketSimPlayState.lua"

@@ -64,5 +64,5 @@ function ChangeScene(scene)
 bear = null;
 function ShakeBear()
 {
-    bear.addTween({ x: bear.x - 15 }, "easeOutElastic", 40, function() { bear.addTween({ x: bear.x + 15 }, "easeOutElastic", 40); });
+    bear.addTween({ x: bear.x - 8 }, "easeOutElastic", 20, function() { bear.addTween({ x: bear.x + 8 }, "easeOutElastic", 20); });
 }

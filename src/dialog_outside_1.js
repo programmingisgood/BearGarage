@@ -116,7 +116,9 @@ OUTSIDE_1_DIALOG =
             "conditionsString": "",
             "codeBefore": "IncreaseWifeAnger(0.05)",
             "codeAfter": "",
-            "outgoingLinks": []
+            "outgoingLinks": [
+                101
+            ]
         },
         {
             "id": 8,
@@ -289,6 +291,45 @@ OUTSIDE_1_DIALOG =
             "outgoingLinks": []
         },
         {
+            "id": 20,
+            "parent": 101,
+            "isChoice": false,
+            "actor": 1,
+            "conversant": 2,
+            "menuText": "Can you bribe a bear?",
+            "dialogueText": "I'll try to bribe the bear.",
+            "conditionsString": "",
+            "codeBefore": "",
+            "codeAfter": "ChangeScene(\"TheBribe\")",
+            "outgoingLinks": []
+        },
+        {
+            "id": 21,
+            "parent": 101,
+            "isChoice": false,
+            "actor": 1,
+            "conversant": 2,
+            "menuText": "What do bears fear?",
+            "dialogueText": "Let's step it up a notch!",
+            "conditionsString": "",
+            "codeBefore": "",
+            "codeAfter": "ChangeScene(\"Ghost\")",
+            "outgoingLinks": []
+        },
+        {
+            "id": 22,
+            "parent": 101,
+            "isChoice": false,
+            "actor": 1,
+            "conversant": 2,
+            "menuText": "Get more diet coke.",
+            "dialogueText": "I better go get my wife more diet coke.",
+            "conditionsString": "",
+            "codeBefore": "",
+            "codeAfter": "ChangeScene(\"MoreDietCoke\")",
+            "outgoingLinks": []
+        },
+        {
             "id": 100,
             "parent": 1,
             "isChoice": true,
@@ -299,6 +340,19 @@ OUTSIDE_1_DIALOG =
                 2,
                 3,
                 4
+            ]
+        },
+        {
+            "id": 101,
+            "parent": 7,
+            "isChoice": true,
+            "conditionsString": "",
+            "codeBefore": "",
+            "codeAfter": "",
+            "outgoingLinks": [
+                20,
+                21,
+                22
             ]
         }
     ]

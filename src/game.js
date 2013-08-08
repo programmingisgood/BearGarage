@@ -15,8 +15,8 @@ Game =
         Crafty.init(Game.width(), Game.height());
         Crafty.background("rgb(255, 255, 255)");
         
-        //Modules.SetOnAllLoadedCallback(function() { Crafty.scene("Intro"); });
-        Modules.SetOnAllLoadedCallback(function() { AddWifeMeter(); Crafty.scene("MoreDietCoke"); });
+        //Crafty.scene("Intro");
+        AddWifeMeter(); Crafty.scene("MoreDietCoke");
     }
 }
 

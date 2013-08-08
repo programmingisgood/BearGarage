@@ -7,7 +7,8 @@ Crafty.scene("MoreDietCoke", function()
                 .attr({ w: Crafty.viewport.width, h: Crafty.viewport.height })
                 .image("assets/garage.png");
 
-        this.bear = Crafty.e("2D, Canvas, Image, Tweener").image("assets/bear-128.png")
+        var bear = Crafty.e("2D, Canvas, Image, Tweener, MoveToTarget")
+                    .image("assets/bear-128.png")
                     .attr({ x: 120, y: 180 });
 
         var dialog = Crafty.e("2D, Canvas, Dialogues").setDialogues(MOREDIETCOKE_1_DIALOG);
@@ -19,9 +20,11 @@ Crafty.scene("MoreDietCoke", function()
                     .addTween({ y: 300 }, "easeOutSine", 160);
 
         var kenneth = null;
-        kenneth = Crafty.e("2D, Canvas, Image, Tweener")
+        kenneth = Crafty.e("2D, Canvas, Image, Tweener, Fourway, ConstrainPosition")
                   .attr({ x: 180, y: 628 })
                   .image("assets/kenneth-64.png")
+                  .fourway(2)
+                  .disableControl()
                   .addTween({ y: 320 }, "easeOutSine", 260,
                   	function() { dialog.showDialogue(); });
 
@@ -29,6 +32,13 @@ Crafty.scene("MoreDietCoke", function()
 
         dialog.EnableControls = function()
         {
+            kenneth.enableControl();
+            kenneth.constrain(64, Game.width() / 2, 260, 340);
+            bear.bind("EnterFrame",
+                function()
+                {
+                    this.target(kenneth.x + kenneth.w / 2, kenneth.y - kenneth.h, 0.2);
+                });
         	Crafty.e("2D, Canvas, Image, Tweener")
         	.attr({ x: 180, y: 320 })
         	.image("assets/arrow_keys.png")

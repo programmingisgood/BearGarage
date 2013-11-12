@@ -36,20 +36,32 @@ Crafty.c("MoveToTarget",
         this.bind("EnterFrame",
             function()
             {
-                if (this.targetX && this.targetY && this.targetMoveSpeed)
+                if (!this.atTarget && this.targetX && this.targetY && this.targetMoveSpeed)
                 {
                     var target = new Crafty.math.Vector2D(this.targetX - this.x, this.targetY - this.y);
+                    if (target.magnitude() <= this.targetMoveSpeed)
+                    {
+                        this.x = this.targetX;
+                        this.y = this.targetY;
+                        this.atTarget = true;
+                        if (this.atTargetCallback)
+                        {
+                            this.atTargetCallback();
+                        }
+                    }
                     target.normalize().scale(this.targetMoveSpeed);
                     this.shift(target.x, target.y);
                 }
             });
     },
 
-    target: function(x, y, speed)
+    target: function(x, y, speed, callback)
     {
         this.targetX = x;
         this.targetY = y;
         this.targetMoveSpeed = speed;
+        this.atTargetCallback = callback;
+        this.atTarget = false;
         return this;
     }
 });

@@ -20,20 +20,25 @@ Crafty.scene("MoreDietCoke", function()
                     .addTween({ y: 300 }, "easeOutSine", 160);
 
         var kenneth = null;
-        kenneth = Crafty.e("2D, Canvas, Image, Tweener, Fourway, ConstrainPosition")
+        kenneth = Crafty.e("2D, Canvas, Image, Tweener, Fourway, ConstrainPosition, Collision")
                   .attr({ x: 180, y: 628 })
                   .image("assets/kenneth-64.png")
                   .fourway(2)
                   .disableControl()
                   .addTween({ y: 320 }, "easeOutSine", 260,
                   	function() { dialog.showDialogue(); });
+        kenneth.waitingForCan = false;
 
-        CreateGarageDietCokeCans();
+        var cans = CreateGarageDietCokeCans();
 
         dialog.EnableControls = function()
         {
             kenneth.enableControl();
-            kenneth.constrain(64, Game.width() / 2, 260, 340);
+            var minX = 64;
+            var maxX = Game.width() / 2;
+            var minY = 260;
+            var maxY = 340;
+            kenneth.constrain(minX, maxX, minY, maxY);
             bear.bind("EnterFrame",
                 function()
                 {
@@ -51,6 +56,23 @@ Crafty.scene("MoreDietCoke", function()
         					this.destroy();
         				});
         		});
+
+            kenneth.bind("EnterFrame",
+                function()
+                {
+                    if (this.x <= minX && this.y <= minY && cans.length > 0 && !this.waitingForCan)
+                    {
+                        var can = cans[0];
+                        this.waitingForCan = true;
+                        can.addTween({ x: this.x, y: this.y }, "easeOutSine", 40,
+                            function()
+                            {
+                                cans.splice(0, 1);
+                                this.destroy();
+                                kenneth.waitingForCan = false;
+                            });
+                    }
+                });
         }
     })
 });
